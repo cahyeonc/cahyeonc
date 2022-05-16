@@ -1,22 +1,10 @@
-### Hi there 👋
-
-<img src="https://capsule-render.vercel.app/api?type=waving&amp;color=auto&amp;height=250&amp;section=header&amp;text=Welcome%Mygithub&amp;fontSize=50&amp;animation=fadeIn&amp;fontAlignY=38&amp;desc=cahyeonc%20&amp;descAlignY=51&amp;descAlign=62" style="max-width: 100%;" />
-
+### ✨ Hi there ✨
 
 <!--
 <div align="center"> 
- <img src="/img/img2.JPG"  width="500" height="200">
+ <img src="/img/img1.gif"  width="500" height="200">
 </div>
 -->
-
-**cahyeonc/cahyeonc** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-
-
-
 
 - 🌱 I’m currently learning ...
 
