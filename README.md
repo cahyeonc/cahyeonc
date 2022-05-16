@@ -1,6 +1,6 @@
 ### Hi there 👋
 
-<img src="https://capsule-render.vercel.app/api?type=waving&amp;color=auto&amp;height=300&amp;section=header&amp;text=Welcome%Mygithub&amp;fontSize=70&amp;animation=fadeIn&amp;fontAlignY=38&amp;desc=Sign%20Language%20Translation%20Service!&amp;descAlignY=51&amp;descAlign=62" style="max-width: 100%;" />
+<img src="https://capsule-render.vercel.app/api?type=waving&amp;color=auto&amp;height=200&amp;section=header&amp;text=Welcome%Mygithub&amp;fontSize=50&amp;animation=fadeIn&amp;fontAlignY=38&amp;desc=Sign%20Language%20Translation%20Service!&amp;descAlignY=51&amp;descAlign=62" style="max-width: 100%;" />
 
 
 <!--
