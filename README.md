@@ -18,6 +18,17 @@ Studying development & AI modeling
  
 ⚙ <img src="https://img.shields.io/badge/Raspberry Pi-A22846?style=flat-square&logo=Raspberry Pi&logoColor=white"/>
 
+
+### Studying Algorithm
+
+
+
+🎩 Baekjoon : https://www.acmicpc.net/
+
+🖥 programmers : https://programmers.co.kr/
+
+
+
 <!--
 - 🔭 I’m currently working on ...
 
