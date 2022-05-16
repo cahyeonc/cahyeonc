@@ -1,5 +1,7 @@
-### ✨ Welcom mygithub ✨
+### ✨ Welcome mygithub ✨
 Studying development & AI modeling
+
+
 
 ### learning skills ...
 
