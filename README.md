@@ -1,8 +1,11 @@
-### ✨ Hi there ✨
+### ✨ Welcom mygithub ✨
+
+
+
 
 
 <div align="center"> 
- <img src="/img/img1.gif"  width="300" height="250">
+ <img src="/img/img1.gif"  width="320" height="250">
 </div>
  
  
