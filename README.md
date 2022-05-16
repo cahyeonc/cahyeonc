@@ -12,7 +12,8 @@
  
  
 
-- 🌱 I’m currently learning ...
+## 🌱 learning skills ...
+----
 
 🔨 <img src="https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=Jupyter&logoColor=white"/> <img src="https://img.shields.io/badge/VSCode-007ACC?style=flat-square&logo=Visual Studio Code&logoColor=white"/>
 
@@ -21,6 +22,8 @@
 
 
  🧱 <img src="https://img.shields.io/badge/Django-092E20?style=flat-square&logo=Django&logoColor=white"/>
+
+
 
 <!--
 - 🔭 I’m currently working on ...
