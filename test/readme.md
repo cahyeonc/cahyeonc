@@ -9,10 +9,12 @@ M:N 관계를 해결하기 위해서, 실제 테이블 설계에서 매핑(mappi
 = 두 테이블 중간에서 필요한 정보를 양쪽으로 끌어서 쓰는 구조
 
 
+
 ****매핑 테이블의 특징**** 
 - 이전에 다른 테이블이 먼저 존재해야만 함
 - 주로 명사가 아닌 '동사'나 '히스토리'에 대한 데이터를 보관하는 용도
 - 중간에 양쪽의 PK를 참조하는 형태
+
 
 
 ****JPA에서의 M:N 처리****
@@ -22,21 +24,24 @@ M:N 관계를 해결하기 위해서, 실제 테이블 설계에서 매핑(mappi
 <br/>
 
 ### 1. 직접 매핑 테이블 설계 및 직접 관계 연결하는 방식 이용
-*@EnableJpaAuditing 자동시간처리*
+*@EnableJpaAuditing : 자동시간처리*
+
 
 
 ****리뷰 = 매핑 테이블)****
-Review Class
 
+Review Class
 
 회원이 영화에 대해서 "평점을 준다" -> 행위에 중점
 
 movie, member(영화, 회원)의 pk를 fk로 가짐 (@ManyToOne)
 
 
+
 ****파일 업로드)****
 MovieImage Class
 : 리뷰와 같은 방식으로 단방향 참조 처리, @Query(left join)
+
 
 
 ***생성은 기존 방식과 동일함***
@@ -53,6 +58,7 @@ movie (1) - movieimage (N) - review join
 ```
 
 
+
 위 같이 join 하면 비효율적으로 여러번 실행됨
 > 1 X N X N 
 
@@ -60,8 +66,7 @@ movie (1) - movieimage (N) - review join
 -> 이미지를 1개로 줄여서 처리
 > 1 X 1 X N 
 
-= 맨위의 이미지만 가져옴 
-
+<br/>
 
 * 특정 영화 조회 화면에서 영화(Movie Class)와 영화의 이미지들(MovieImage Class), 리뷰의 평균점수/리뷰개수(Review Class)를 같이 출력
 
@@ -72,6 +77,7 @@ movie (1) - movieimage (N) - review join
        + " where m.mno = :mno group by mi")
 ```
 
+<br/>
 
 * 리뷰(Review Class)에 대한 정보에는 회원(Member Class)의 이메일이나 닉네임과 같은 정보를 같이 출력 
 @EntityGraph, 서브쿼리 활용
@@ -85,6 +91,7 @@ ex) @EntityGraph(attributePaths={"member"}, type = EntityGraph.EntityGraphType.F
 ```
 
 
+
 주의) M:N 관계에서 명사에 해당하는 객체를 삭제할 때 매핑 테이블에서도 삭제해야 함
 해당 회원의 리뷰를 먼저 삭제하고, 해당 회원의 정보를 삭제하는 순서로 진행
 -> 한 트랜잭션으로 처리해야하기 위해 @Transactional , @Commit 
@@ -93,14 +100,19 @@ ex) @EntityGraph(attributePaths={"member"}, type = EntityGraph.EntityGraphType.F
 
 ### 3. 파일 업로드
 Tomcat 실행, 파일 업로드 관련 설정 추가 필요
-***MutipartFile 배열로 받아 여러 파일 정보를 처리***
 
-파일 저장 고려사항
+
+** MutipartFile 배열로 받아 여러 파일 정보를 처리*
+
+
+
+****파일 저장 고려사항****
 - 동일한 파일이름 문제 -> 시간 값 파일을 이름에 추가하거나, UUID 등 고유한 값을 만들어서 사용
 - 동일한 폴더에 파일들이 쌓이는 문제 -> 일반적으로 년/월/일 폴더를 생성하여 한 곳에 쌓이는 것을 방지함
 
 
-***파일 확장자 체크 MultipartFile의 getContentType() 으로 가능***
+
+** 파일 확장자 체크 MultipartFile의 getContentType() 으로 가능*
 
 
 * 섬네일 처리
