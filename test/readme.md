@@ -1,3 +1,4 @@
+<br/>
 ## M:N (다대다) 관계 
 M:N의 관계는 실제 테이블로 설계할 수 없음.
 
@@ -8,14 +9,14 @@ M:N의 관계는 실제 테이블로 설계할 수 없음.
 M:N 관계를 해결하기 위해서, 실제 테이블 설계에서 매핑(mapping) 테이블을 이용.
 = 두 테이블 중간에서 필요한 정보를 양쪽으로 끌어서 쓰는 구조
 
-
+<br/>
 
 ****매핑 테이블의 특징**** 
 - 이전에 다른 테이블이 먼저 존재해야만 함
 - 주로 명사가 아닌 '동사'나 '히스토리'에 대한 데이터를 보관하는 용도
 - 중간에 양쪽의 PK를 참조하는 형태
 
-
+<br/>
 
 ****JPA에서의 M:N 처리****
 * @ManyToMany 이용 (각 엔티티와의 매핑 테이블이 자동 생성되는 방식의 처리)
@@ -26,7 +27,7 @@ M:N 관계를 해결하기 위해서, 실제 테이블 설계에서 매핑(mappi
 ### 1. 직접 매핑 테이블 설계 및 직접 관계 연결하는 방식 이용
 *@EnableJpaAuditing : 자동시간처리*
 
-
+<br/>
 
 ****리뷰 = 매핑 테이블)****
 
@@ -34,13 +35,13 @@ M:N 관계를 해결하기 위해서, 실제 테이블 설계에서 매핑(mappi
 
 Review Class : movie, member(영화, 회원)의 pk를 fk로 가짐 (@ManyToOne)
 
-
+<br/>
 
 ****파일 업로드)****
 
 MovieImage Class : 리뷰와 같은 방식으로 단방향 참조 처리, @Query(left join)
 
-
+<br/>
 
 *생성은 기존 방식과 동일함*
 
@@ -54,7 +55,6 @@ MovieImage Class : 리뷰와 같은 방식으로 단방향 참조 처리, @Query
 ```
 movie (1) - movieimage (N) - review join
 ```
-
 
 
 위 같이 join 하면 비효율적으로 여러번 실행됨
@@ -95,8 +95,7 @@ movie (1) - movieimage (N) - review join
 ex) @EntityGraph(attributePaths={"member"}, type = EntityGraph.EntityGraphType.FETCH)
 ```
 
-
-
+<br/>
 
 주의) M:N 관계에서 명사에 해당하는 객체를 삭제할 때 매핑 테이블에서도 삭제해야 함
 해당 회원의 리뷰를 먼저 삭제하고, 해당 회원의 정보를 삭제하는 순서로 진행
@@ -112,8 +111,7 @@ Tomcat 실행, 파일 업로드 관련 설정 추가 필요
 
 *MutipartFile 배열로 받아 여러 파일 정보를 처리*
 
-
-
+<br/>
 
 ****파일 저장 고려사항****
 1. 동일한 파일이름 문제 -> 시간 값 파일을 이름에 추가하거나, UUID 등 고유한 값을 만들어서 사용
@@ -123,17 +121,17 @@ Tomcat 실행, 파일 업로드 관련 설정 추가 필요
 
 *파일 확장자 체크 MultipartFile의 getContentType() 으로 가능*
 
+<br/>
+
+****섬네일 처리****
 
 
-
-* 섬네일 처리
 원본 이미지를 그대로 보여주면 데이터를 많이 소비하기 때문에 섬네일 처리 후 이용(파일 크기가 매우 작음)
 > Thumbnailator 라이브러리 이용 : 적은 양의 코드만으로 이용해서 제작 가능, 비율 조정 편리
 
+<br/>
 
-
-
-* 파일 삭제
+****파일 삭제****
 
 
 원본파일과 함께 섬네일 파일도 같이 삭제해야 함
@@ -147,8 +145,7 @@ Tomcat 실행, 파일 업로드 관련 설정 추가 필요
 
 MovieDTO 안에 MovieImageDTO List 가 포함되게 작성(1:N 관계)
 
-
-
+<br/>
 
 ****Service****
 
@@ -162,18 +159,16 @@ DTO -> Entity 변환
 
 Entity로 변환시킨 객체를 꺼내서 각각 레파지토리로 넣어 저장
 
-
-
+<br/>
 
 ****Controller****
 
 
 movieService와 연결
 
+<br/>
 
-
-
-html 생략
+****html**** 생략
 
 <br/>
 
@@ -186,8 +181,7 @@ html 생략
 
 double avg, int reviewCnt ...
 
-
-
+<br/>
 
 ****Service****
 
@@ -202,8 +196,7 @@ entitiesToDto()
 > - Double타입의 평점평균
 > - Long 타입의 리뷰개수
 
-
-
+<br/>
 
 ****Controller, html 생략****
 
