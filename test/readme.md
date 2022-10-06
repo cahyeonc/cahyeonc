@@ -18,8 +18,7 @@ M:N관계를 해결하기 위해서, 실제 테이블 설계에서 매핑(mappin
 > 1. @ManyToMany 이용 (각 엔티티와의 매핑 테이블이 자동 생성되는 방식의 처리)
 > 2. 별도의 엔티티 설계 후, @ManyToOne 이용
 
-
-
+<br /><br />
 
 ### 1. [예제] 직접 매핑 테이블 설계 및 직접 관계 연결하는 방식 이용
 > @EnableJpaAuditing 자동시간처리
@@ -39,8 +38,7 @@ MovieImage Class
 
 > 생성은 기존 방식과 동일함
 
-
-
+<br/><br/><br/>
 
 ### 2. 필요한 데이터 처리
 * 목록 화면에서 영화 제목(Movie Class), 이미지 하나(MovieImage Class), 영화 리뷰의 평점/리뷰 개수(Review Class) 를 같이 출력
