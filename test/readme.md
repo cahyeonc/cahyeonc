@@ -37,7 +37,7 @@ MovieImage Class
 * 목록 화면에서 영화 제목(Movie Class), 이미지 하나(MovieImage Class), 영화 리뷰의 평점/리뷰 개수(Review Class) 를 같이 출력
 
 @Query 방식 
-````
+```
 movie (1) - movieimage (N) - review join
 ```
 
