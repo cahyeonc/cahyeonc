@@ -47,7 +47,7 @@ MovieImage Class : 리뷰와 같은 방식으로 단방향 참조 처리, @Query
 <br/>
 
 ### 2. 필요한 데이터 처리
-* 목록 화면에서 영화 제목(Movie Class), 이미지 하나(MovieImage Class), 영화 리뷰의 평점/리뷰 개수(Review Class) 를 같이 출력
+#### 1) 목록 화면에서 영화 제목(Movie Class), 이미지 하나(MovieImage Class), 영화 리뷰의 평점/리뷰 개수(Review Class) 를 같이 출력
 
 
 @Query 방식 
@@ -66,7 +66,7 @@ movie (1) - movieimage (N) - review join
 
 <br/>
 
-* 특정 영화 조회 화면에서 영화(Movie Class)와 영화의 이미지들(MovieImage Class), 리뷰의 평균점수/리뷰개수(Review Class)를 같이 출력
+#### 2) 특정 영화 조회 화면에서 영화(Movie Class)와 영화의 이미지들(MovieImage Class), 리뷰의 평균점수/리뷰개수(Review Class)를 같이 출력
 
 92번 영화의 이미지가 2개, 리뷰개수가 4개 일 때
 ```
@@ -77,21 +77,24 @@ movie (1) - movieimage (N) - review join
 
 <br/>
 
-* 리뷰(Review Class)에 대한 정보에는 회원(Member Class)의 이메일이나 닉네임과 같은 정보를 같이 출력 
+#### 3) 리뷰(Review Class)에 대한 정보에는 회원(Member Class)의 이메일이나 닉네임과 같은 정보를 같이 출력 
 
 
-****@EntityGraph, 서브쿼리 활용****
+****@ EntityGraph, 서브쿼리 활용****
+
+
 : 엔티티의 특정한 속성을 같이 로딩하도록 표시하는 어노테이션,
 
 
 일반적으로 연관관계의 Fetch 속성 값은 LAZY로 지정하지만, 특정 기능을 수행할 때만 EAGER로딩을 할 수 있도록 지정할 수 있음 
 
-속성
+
 1. attributePaths : 로딩 설정을 변경하고 싶은 속성의 이름을 배열로 명시
 2. type : @EntityGraph 를 어떤 방식으로 적용할 것인지를 설정
 ```
 ex) @EntityGraph(attributePaths={"member"}, type = EntityGraph.EntityGraphType.FETCH)
 ```
+
 
 
 
@@ -111,18 +114,22 @@ Tomcat 실행, 파일 업로드 관련 설정 추가 필요
 
 
 
+
 ****파일 저장 고려사항****
-- 동일한 파일이름 문제 -> 시간 값 파일을 이름에 추가하거나, UUID 등 고유한 값을 만들어서 사용
-- 동일한 폴더에 파일들이 쌓이는 문제 -> 일반적으로 년/월/일 폴더를 생성하여 한 곳에 쌓이는 것을 방지함
+1. 동일한 파일이름 문제 -> 시간 값 파일을 이름에 추가하거나, UUID 등 고유한 값을 만들어서 사용
+2. 동일한 폴더에 파일들이 쌓이는 문제 -> 일반적으로 년/월/일 폴더를 생성하여 한 곳에 쌓이는 것을 방지함
 
 
 
 *파일 확장자 체크 MultipartFile의 getContentType() 으로 가능*
 
 
+
+
 * 섬네일 처리
 원본 이미지를 그대로 보여주면 데이터를 많이 소비하기 때문에 섬네일 처리 후 이용(파일 크기가 매우 작음)
 > Thumbnailator 라이브러리 이용 : 적은 양의 코드만으로 이용해서 제작 가능, 비율 조정 편리
+
 
 
 
@@ -142,7 +149,10 @@ MovieDTO 안에 MovieImageDTO List 가 포함되게 작성(1:N 관계)
 
 
 
+
 ****Service****
+
+
 DTO -> Entity 변환
 
 
@@ -154,10 +164,12 @@ Entity로 변환시킨 객체를 꺼내서 각각 레파지토리로 넣어 저�
 
 
 
+
 ****Controller****
 
 
 movieService와 연결
+
 
 
 
@@ -176,6 +188,7 @@ double avg, int reviewCnt ...
 
 
 
+
 ****Service****
 
 
@@ -188,6 +201,7 @@ entitiesToDto()
 > - List<MovieImage> entity
 > - Double타입의 평점평균
 > - Long 타입의 리뷰개수
+
 
 
 
