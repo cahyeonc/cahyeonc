@@ -11,10 +11,10 @@ M:N의 관계는 실제 테이블로 설계할 수 없음.
 - 중간에 양쪽의 PK를 참조하는 형태
 
 ##### JPA에서의 M:N 처리
-1) @ManyToMany 이용 (각 엔티티와의 매핑 테이블이 자동 생성되는 방식의 처리)
-* 어려움
+* @ManyToMany 이용 (각 엔티티와의 매핑 테이블이 자동 생성되는 방식의 처리)
+-> 어려움
 
-2) 별도의 엔티티 설계 후, @ManyToOne 이용
+* 별도의 엔티티 설계 후, @ManyToOne 이용
 
 
 
@@ -23,7 +23,7 @@ M:N의 관계는 실제 테이블로 설계할 수 없음.
 
 리뷰 = 매핑 테이블)
 Review Class 
-회원이 영화에 대해서 [평점을 준다]' -> 행위에 중점
+회원이 영화에 대해서 "평점을 준다" -> 행위에 중점
 movie, member(영화, 회원)의 pk를 fk로 가짐 (@ManyToOne)
 
 파일 업로드)
@@ -33,11 +33,11 @@ MovieImage Class
 * 생성은 기존 방식과 동일함
 
 ### 2. 필요한 데이터 처리
-
-ㅇ목록 화면에서 영화 제목(Movie Class), 이미지 하나(MovieImage Class), 영화 리뷰의 평점/리뷰 개수(Review Class) 를 같이 출력
+: 목록 화면에서 영화 제목(Movie Class), 이미지 하나(MovieImage Class), 영화 리뷰의 평점/리뷰 개수(Review Class) 를 같이 출력
 
 @Query 방식 
-movie (1) - movieimage (N) - review join
+
+ movie (1) - movieimage (N) - review join
 
 위 같이 join 하면 비효율적으로 여러번 실행됨 ( 1 X N X N )
 방법 1. 이미지를 1개로 줄여서 처리
